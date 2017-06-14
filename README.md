@@ -1,4 +1,4 @@
-### Power-Rankings for SSBM
+# Power-Rankings for SSBM
 
 ## By Matthew Mage
 
