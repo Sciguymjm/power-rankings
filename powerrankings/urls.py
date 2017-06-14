@@ -19,5 +19,6 @@ from powerr import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^player/(?P<player>[0-9]+)$', views.player, name='player')
+    url(r'^player/(?P<p>[0-9]+)$', views.player, name='player'),
+    url(r'^load/challonge/(?P<url>[a-zA-Z0-9]+)$', views.load_challonge, name='load_challonge')
 ]
