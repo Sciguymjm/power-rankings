@@ -20,7 +20,7 @@ def home(request):
         rating_set.append([user, r])
     rating_set = sorted(rating_set, key=lambda x: -x[1].mu)
 
-    return render(request, "index.html", context={"rating_set": rating_set, "players": Player.objects.all()})
+    return render(request, "ratings.html", context={"rating_set": rating_set, "players": Player.objects.all()})
 
 
 def player(request, p):
@@ -64,7 +64,7 @@ def full_update_ratings(request, region):
             loser = Player.objects.filter(id=loserid).first()
             skill_util.update_trueskill_ratings(int(region), winner=winner, loser=loser)
 
-    return redirect("/")
+    return redirect("/reset")
 
 
 def add_alias(request, player, alias):
@@ -78,7 +78,7 @@ def rescan_all_tournaments(request):
     ts = Tournament.objects.filter(type="challonge").all()
     for t in ts:
         load_tournament(t.url.split("/")[-1])
-    return redirect("/")
+    return redirect("/reset")
 
 
 def delete_all_but_tournaments(request):
@@ -86,7 +86,7 @@ def delete_all_but_tournaments(request):
     Rating.objects.all().delete()
     Match.objects.all().delete()
 
-    return redirect('/')
+    return redirect('/reset')
 
 def admin(request):
     return render(request, "admin.html")

@@ -5,3 +5,7 @@ tr.loss {
 tr.win {
     background: rgba(92, 184, 92, 0.49);
 }
+
+.container {
+    margin-top: 1em;
+}

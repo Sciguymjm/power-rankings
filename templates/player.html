@@ -1,4 +1,10 @@
-{% include "header.html" %}
+{% extends "index.html" %}
+{% comment %}
+Represents a player and lists all of their wins and losses. If they win, the win class is set. If they lose,
+the loss class is set.
+{% endcomment %}
+{% block title %}{{ player.name }} - PsiPR{% endblock %}
+{% block content %}
 <a href="/">Back</a>
 <h2>{{ player.name }}</h2>
 <table class="table">
@@ -20,4 +26,4 @@
 
     {% endfor %}
 </table>
-{% include "footer.html" %}
+{% endblock %}

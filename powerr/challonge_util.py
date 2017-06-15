@@ -17,7 +17,7 @@ def load_tournament(id):
                 n = l[1].split(",")
                 aliases[l[0]] = [j.lower().replace("\n", "") for j in n]
             else:
-                aliases[l[0]] = l[1].lower().replace("\n", "")
+                aliases[l[0]] = [l[1].lower().replace("\n", "")]
 
     def is_alias(s):
         s = s.lower()
