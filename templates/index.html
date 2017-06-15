@@ -27,6 +27,9 @@ with their own content. To place content on this page, make a new %block% and re
 
 <body>
     <div class="container">
+        <img style="height:100px" src="{% static "logo.png" %}">
+    </div>
+    <div class="container">
         {% block content %}{% endblock %}
     </div>
 </body>

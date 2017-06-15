@@ -17,7 +17,7 @@ def home(request):
         if len(user.ratings[0]) == 0:
             skill_util.add_default_skill_ratings()
         r = Rating.objects.filter(id=user.ratings[0]).first()
-        r.mu -= 3 * r.sigma # 
+        r.mu -= 3 * r.sigma #
         rating_set.append([user, r])
     rating_set = sorted(rating_set, key=lambda x: -x[1].mu)
 

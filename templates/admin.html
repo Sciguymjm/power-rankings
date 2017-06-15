@@ -1,6 +1,7 @@
-{% include "header.html" %}
+{% extends "index.html" %}
+{% block content %}
 <a href="/">Back</a>
 <p><a href="/delete_all">Delete all</a></p>
 <p><a href="/reload_all">Reload all tourneys</a></p>
 <p><a href="/load/reload_all/0">Reload all ratings</a></p>
-{% include "footer.html" %}
+{% endblock %}
