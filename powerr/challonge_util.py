@@ -15,13 +15,14 @@ def load_tournament(id):  # loads tournament from a given challonge id (http://c
             l = line.split(":")
             if "," in l[1]:
                 n = l[1].split(",")
-                aliases[l[0]] = [j.lower().replace("\n", "") for j in n]
+                aliases[l[0]] = [j.lower().replace("\n", "").replace("\r", "") for j in n]
             else:
-                aliases[l[0]] = [l[1].lower().replace("\n", "")]
+                aliases[l[0]] = [l[1].lower().replace("\n", "").replace("\r", "")]
 
     def is_alias(s):  # checks if the given name is an alias TODO: Combine this with get_alias
         s = s.lower()
         for i in range(len(aliases)):
+            print aliases.values()[i]
             if s in aliases.values()[i]:
                 return True
         return False

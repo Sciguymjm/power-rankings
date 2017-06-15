@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^alias/add/(?P<player>[^\/]+)/(?P<alias>[^\/]+)', views.add_alias, name="add_alias"),
     url(r'^reload_all$', views.rescan_all_tournaments, name='rescan_all'),
     url(r'^delete_all$', views.delete_all_but_tournaments, name='delete_all'),
-    url(r'^reset$', views.admin, name='reset')
+    url(r'^reset$', views.admin, name='reset'),
+    url(r'^about$', views.about, name='about')
 ]

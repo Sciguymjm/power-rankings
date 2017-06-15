@@ -17,10 +17,10 @@ the loss class is set.
     {% for match in matches %}
         <tr class="{% if match.winner.id == player.id %}win{% else %}loss{% endif %}">
             <td>
-                {{ match.winner.name }}
+                <a href="/player/{{ match.winner.id }}">{{ match.winner.name }}</a>
             </td>
             <td>
-                {{ match.loser.name }}
+                <a href="/player/{{ match.loser.id }}">{{ match.loser.name }}</a>
             </td>
         </tr>
 

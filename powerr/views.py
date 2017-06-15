@@ -91,3 +91,6 @@ def delete_all_but_tournaments(request):
 
 def admin(request):
     return render(request, "admin.html")
+
+def about(request):
+    return render(request, "about.html")

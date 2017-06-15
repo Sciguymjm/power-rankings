@@ -9,3 +9,7 @@ tr.win {
 .container {
     margin-top: 1em;
 }
+
+p.question {
+    font-weight: bold;
+}
