@@ -8,8 +8,7 @@ challonge.set_credentials("Sciguymjm", creds.CHALLONGE_API_KEY)
 aliases = {}
 
 
-def load_tournament(
-        id):  # loads a tournament from a given challonge id (http://challonge.com/xxxxxx), where xxxxxx is id
+def load_tournament(id):  # loads tournament from a given challonge id (http://challonge.com/xxxxxx), where xxxxxx is id
     with open("alias.txt") as f:  # loads alias list (anthony: there is probably a better way to handle this)
         lines = f.readlines()
         for line in lines:
@@ -36,7 +35,7 @@ def load_tournament(
     tournament = challonge.tournaments.show(id)  # retrieves challonge tourney info from api
     t = Tournament()  # creates a new tournament
     t.name = tournament["name"]  # sets the name
-    t.type = "challonge"  # set the type (not necessary right now, but for later if we add smash.gg
+    t.type = "challonge"  # set the type (not necessary right now, but for later if we add smash.gg)
     t.date = tournament["started_at"]  # just the date, time is not needed
     t.region = "NEU"  # this needs to be able to be changed using the URL, for later use
     t.url = tournament["full_challonge_url"]  # to save for later

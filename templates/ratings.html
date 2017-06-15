@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block title %}PsiPR - Summer 1 2017{% endblock %}
+{% block content %}
+    <h2>Current Ratings - Summer 1 2017</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Sigma<sup>†</sup></th>
+        </tr>
+        </thead>
+        {% for u, p in rating_set %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="/player/{{ u.id }}">{{ u.name }}</a></td>
+                <td>{{ p.mu|floatformat }}</td>
+                <td>{{ p.sigma|floatformat }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p><i><sup>†</sup>Sigma represents the standard deviation for a score. Higher means we are less certain this person should be
+        where they are</i></p>
+{% endblock %}
