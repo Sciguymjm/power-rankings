@@ -4,6 +4,8 @@ import trueskill
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
+REGIONS = ["NEU"]
+
 
 class Player(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
