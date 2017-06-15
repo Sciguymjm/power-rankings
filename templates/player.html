@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Player {{ player }}</title>
-</head>
-<body>
-{{ player }}
-</body>
-</html>
+{% include "header.html" %}
+<a href="/">Back</a>
+<h2>{{ player.name }}</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Winner</th>
+        <th>Loser</th>
+    </tr>
+    </thead>
+    {% for match in matches %}
+        <tr class="{% if match.winner.id == player.id %}win{% else %}loss{% endif %}">
+            <td>
+                {{ match.winner.name }}
+            </td>
+            <td>
+                {{ match.loser.name }}
+            </td>
+        </tr>
+
+    {% endfor %}
+</table>
+{% include "footer.html" %}

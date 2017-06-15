@@ -1,0 +1,14 @@
+{% include "header.html" %}
+<h2>Current Ratings - Summer 1 2017</h2>
+<table class="table">
+    <thead><tr><th>Rank</th><th>Name</th><th>Score</th></tr></thead>
+{% for u, p in rating_set %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+        <td><a href="/player/{{ u.id }}">{{ u.name }}</a></td>
+        <td>{{ p.mu|floatformat }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% include "footer.html" %}

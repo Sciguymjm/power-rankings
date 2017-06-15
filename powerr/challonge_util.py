@@ -7,10 +7,6 @@ from powerr.models import Match, Tournament, Player
 challonge.set_credentials("Sciguymjm", creds.CHALLONGE_API_KEY)
 aliases = {}
 
-aliases = {}
-
-
-
 
 def load_tournament(id):
     with open("alias.txt") as f:
@@ -19,9 +15,9 @@ def load_tournament(id):
             l = line.split(":")
             if "," in l[1]:
                 n = l[1].split(",")
-                aliases[l[0]] = [j.lower().replace("\n","") for j in n]
+                aliases[l[0]] = [j.lower().replace("\n", "") for j in n]
             else:
-                aliases[l[0]] = l[1].lower().replace("\n","")
+                aliases[l[0]] = l[1].lower().replace("\n", "")
 
     def is_alias(s):
         s = s.lower()
@@ -35,9 +31,9 @@ def load_tournament(id):
         for i in range(len(aliases)):
             if s in aliases.values()[i]:
                 return aliases.keys()[i]
+
     print get_alias("Randy for Ramsey")
     assert get_alias("Randy for Ramsey") == "Poodledeedoop"
-    assert is_alias("Poodlededoop") == True
     tournament = challonge.tournaments.show(id)
     t = Tournament()
     t.name = tournament["name"]
@@ -91,7 +87,6 @@ def load_tournament(id):
         m.excluded = False
         t.matches.append(m.id)
         m.save()
-
 
     t.save()
     skill_util.add_default_skill_ratings()

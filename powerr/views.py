@@ -1,7 +1,9 @@
+import uuid
+
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
-from powerr import skill_util, models
+from powerr import skill_util, models, challonge_util
 from powerr.challonge_util import load_tournament
 from powerr.models import Match, Player, Rating, Tournament
 
@@ -10,7 +12,6 @@ from powerr.models import Match, Player, Rating, Tournament
 
 
 def home(request):
-    text = ""
     rating_set = []
     for user in Player.objects.all():
         if len(user.ratings[0]) == 0:
@@ -18,18 +19,21 @@ def home(request):
         r = Rating.objects.filter(id=user.ratings[0]).first()
         rating_set.append([user, r])
     rating_set = sorted(rating_set, key=lambda x: -x[1].mu)
-    for u, p in rating_set:
-        text += "<p>" + u.name + " - " + str(p.mu) + "</p>"
 
-    text += "<p><a href=\"/delete_all\">Delete all</a></p>"
-    text += "<p><a href=\"/reload_all\">Reload all tourneys</a></p>"
-    text += "<p><a href=\"/load/reload_all/0\">Reload all ratings</a></p>"
-
-    return HttpResponse(text)
+    return render(request, "index.html", context={"rating_set": rating_set, "players": Player.objects.all()})
 
 
 def player(request, p):
-    return render(request, template_name="player.html", context={"player": p})
+    print p
+    id = uuid.UUID(p)
+    play = Player.objects.filter(id=id).first()
+    matches = []
+    for match in Match.objects.all():
+        if match.has_player(p):
+            match.winner = Player.objects.filter(id=match.winner).first()
+            match.loser = Player.objects.filter(id=match.loser).first()
+            matches.append(match)
+    return render(request, template_name="player.html", context={"player": play, "matches": matches})
 
 
 def load_challonge(request, url):
@@ -83,3 +87,6 @@ def delete_all_but_tournaments(request):
     Match.objects.all().delete()
 
     return redirect('/')
+
+def admin(request):
+    return render(request, "admin.html")

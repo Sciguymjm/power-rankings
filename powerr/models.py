@@ -4,7 +4,7 @@ import trueskill
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
-REGIONS = ["NEU"]
+REGIONS = ["NEU-Summer", "NEU"]
 
 
 class Player(models.Model):

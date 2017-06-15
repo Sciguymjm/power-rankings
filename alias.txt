@@ -1,6 +1,10 @@
 Pyro:NEU_Pyro
 C03:HCO3
-NBC | Aspens:aspins
+NBC | Aspens:aspins,aspens,aspi
 Poodledeedoop:Randy for Ramsey,Poodlededoop
 NBC | Mustard:mustard
 psi:Sci
+nugz:nugs
+Luke:Luke420
+OG Cornflake:OG Simpson
+YungBonesVillain:Bilewretch the Forlorn
