@@ -2,8 +2,8 @@
 {% block title %}PsiPR - Summer 1 2017{% endblock %}
 {% block content %}
     <h2>Current Ratings - Summer 1 2017</h2>
-    <table class="table">
-        <thead>
+    <table class="table table-striped table-hover">
+        <thead class="thead-default">
         <tr>
             <th>Rank</th>
             <th>Name</th>
@@ -11,6 +11,7 @@
             <th>Sigma<sup>†</sup></th>
         </tr>
         </thead>
+        <tbody>
         {% for u, p in rating_set %}
             <tr>
                 <td>{{ forloop.counter }}</td>
@@ -19,7 +20,9 @@
                 <td>{{ p.sigma|floatformat }}</td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
-    <p><i><sup>†</sup>Sigma represents the standard deviation for a score. Higher means we are less certain this person should be
+    <p><i><sup>†</sup>Sigma represents the standard deviation for a score. Higher means we are less certain this person
+        should be
         where they are</i></p>
 {% endblock %}

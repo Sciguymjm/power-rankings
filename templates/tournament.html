@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+{% block title %}{{ t.name }} - Tournaments - PsiPR{% endblock %}
+{% block content %}
+    <a href="/tournaments">Back</a>
+<h2>{{ t.name }}</h2>
+    <hr>
+<img src="{{ url }}">
+{% endblock %}

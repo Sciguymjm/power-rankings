@@ -1,15 +1,17 @@
 import uuid
 
+import challonge
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+import creds
 from powerr import skill_util, models, challonge_util
 from powerr.challonge_util import load_tournament
 from powerr.models import Match, Player, Rating, Tournament
 
 
 # Create your views here.
-
+challonge.set_credentials("Sciguymjm", creds.CHALLONGE_API_KEY)
 
 def home(request):
     rating_set = []
@@ -94,3 +96,13 @@ def admin(request):
 
 def about(request):
     return render(request, "about.html")
+
+def tournaments(request):
+    t = Tournament.objects.order_by('-date').all()
+    return render(request, "tournaments.html", context={"tournaments": t})
+
+def show_tournament(request, id):
+    id = uuid.UUID(id)
+    t = Tournament.objects.filter(id=id).first()
+    c = challonge.tournaments.show(t.url.split("/")[-1])
+    return render(request, "tournament.html", context={"t": t, "url": c["live_image_url"]})

@@ -5,25 +5,27 @@ the loss class is set.
 {% endcomment %}
 {% block title %}{{ player.name }} - PsiPR{% endblock %}
 {% block content %}
-<a href="/">Back</a>
-<h2>{{ player.name }}</h2>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Winner</th>
-        <th>Loser</th>
-    </tr>
-    </thead>
-    {% for match in matches %}
-        <tr class="{% if match.winner.id == player.id %}win{% else %}loss{% endif %}">
-            <td>
-                <a href="/player/{{ match.winner.id }}">{{ match.winner.name }}</a>
-            </td>
-            <td>
-                <a href="/player/{{ match.loser.id }}">{{ match.loser.name }}</a>
-            </td>
+    <a href="/">Back</a>
+    <h2>{{ player.name }}</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Winner</th>
+            <th>Loser</th>
         </tr>
+        </thead>
+        <tbody>
+        {% for match in matches %}
+            <tr class="{% if match.winner.id == player.id %}win{% else %}loss{% endif %}">
+                <td>
+                    <a href="/player/{{ match.winner.id }}">{{ match.winner.name }}</a>
+                </td>
+                <td>
+                    <a href="/player/{{ match.loser.id }}">{{ match.loser.name }}</a>
+                </td>
+            </tr>
 
-    {% endfor %}
-</table>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
