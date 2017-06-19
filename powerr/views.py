@@ -35,8 +35,9 @@ def player(request, p):
         if match.has_player(p):
             match.winner = Player.objects.filter(id=match.winner).first()
             match.loser = Player.objects.filter(id=match.loser).first()
+            match.tournament = Tournament.objects.filter(matches__contains=[str(match.id)]).first()
             matches.append(match)
-    return render(request, template_name="player.html", context={"player": play, "matches": matches})
+    return render(request, template_name="player.html", context={"player": play, "matches": sorted(matches, key=lambda x: x.tournament.date, reverse=True)})
 
 
 def load_challonge(request, url):

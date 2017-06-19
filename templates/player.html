@@ -12,6 +12,8 @@ the loss class is set.
         <tr>
             <th>Winner</th>
             <th>Loser</th>
+            <th>Tournament</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +25,12 @@ the loss class is set.
                     </td>
                     <td>
                         <a href="/player/{{ match.loser.id }}">{{ match.loser.name }}</a>
+                    </td>
+                    <td>
+                        <a href="/tournaments/{{ match.tournament.id }}">{{ match.tournament.name }}</a>
+                    </td>
+                    <td>
+                        {{ match.tournament.date }}
                     </td>
                 </tr>
             {% endif %}
