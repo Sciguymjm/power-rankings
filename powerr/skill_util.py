@@ -2,7 +2,6 @@ import trueskill
 
 from powerr.models import Player, Rating
 
-
 def update_trueskill_ratings(region_id, winner=None, loser=None):
     winner_ratings_dict = winner.ratings
     loser_ratings_dict = loser.ratings

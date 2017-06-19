@@ -1,7 +1,8 @@
 Pyro:NEU_Pyro
 C03:HCO3
-NBC | Aspens:aspins,aspens,aspi
-Poodledeedoop:Randy for Ramsey,Poodlededoop
+NBC | Aspens:aspins,aspens,aspi,NBC | spiked brownie
+Berklee | Blu:Berklee|Blu
+Poodledeedoop:Randy for Ramsey,Poodlededoop,better than BVB
 NBC | Mustard:mustard
 Psi:Sci
 nugz:nugs

@@ -16,15 +16,16 @@ the loss class is set.
         </thead>
         <tbody>
         {% for match in matches %}
-            <tr class="{% if match.winner.id == player.id %}win{% else %}loss{% endif %}">
-                <td>
-                    <a href="/player/{{ match.winner.id }}">{{ match.winner.name }}</a>
-                </td>
-                <td>
-                    <a href="/player/{{ match.loser.id }}">{{ match.loser.name }}</a>
-                </td>
-            </tr>
-
+            {% if not match.exclude %}
+                <tr class="{% if match.winner.id == player.id %}win{% else %}loss{% endif %}">
+                    <td>
+                        <a href="/player/{{ match.winner.id }}">{{ match.winner.name }}</a>
+                    </td>
+                    <td>
+                        <a href="/player/{{ match.loser.id }}">{{ match.loser.name }}</a>
+                    </td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>

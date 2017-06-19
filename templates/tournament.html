@@ -2,7 +2,7 @@
 {% block title %}{{ t.name }} - Tournaments - PsiPR{% endblock %}
 {% block content %}
     <a href="/tournaments">Back</a>
-<h2>{{ t.name }}</h2>
+    <h2><a href="{{ tourney_url }}">{{ t.name }}</a></h2>
     <hr>
-<img src="{{ url }}">
+    <img src="{{ url }}">
 {% endblock %}
