@@ -1,11 +1,4 @@
 .idea/
-.idea/dataSources.local.xml
-.idea/dataSources.xml
-.idea/dataSources/
-.idea/deployment.xml
-.idea/inspectionProfiles/
-.idea/webServers.xml
-.idea/workspace.xml
 creds.py
 creds.pyc
 powerr/__init__.pyc
