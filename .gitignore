@@ -12,12 +12,7 @@ powerr/__init__.pyc
 powerr/__pycache__/
 powerr/admin.pyc
 powerr/challonge_util.pyc
-powerr/migrations/0001_initial.pyc
-powerr/migrations/0002_auto_20170614_1906.pyc
-powerr/migrations/0003_auto_20170614_1907.pyc
-powerr/migrations/0004_auto_20170614_1908.pyc
-powerr/migrations/__init__.pyc
-powerr/migrations/__pycache__/
+powerr/migrations/
 powerr/models.pyc
 powerr/skill_util.pyc
 powerr/views.pyc
